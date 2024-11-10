@@ -1,0 +1,15 @@
+{% load static %}
+
+<div class="max-w-sm border flex flex-col justify-between border-gray-200 rounded-lg shadow cursor-pointer hover:scale-[1.015] transition-all ease-linear">
+	{% if product.picture %}
+	<img class="rounded-t-lg" src="/{{ product.picture }}" alt="{{ product.name }}" />
+	{% else %}
+	<img class="rounded-t-lg" src="{% static "images/no_image.jpg" %}" alt="No image" />
+	{% endif %}
+	<div class="p-4">
+        <h2 class="mb-5 text-2xl font-bold tracking-tight text-inherit">{{ product.name }}</h2>
+        <a href="{% url 'detail_product' product.id %}" class="inline-block w-full py-2 text-center border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 rounded transition-colors ease-linear">
+            Ver detalles
+        </a>
+	</div>
+</div>
